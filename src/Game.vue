@@ -4,13 +4,11 @@ import { getWordOfTheDay, allWords } from './words'
 import Keyboard from './Keyboard.vue'
 import { LetterState } from './types'
 
-// Get word of the day
+const answer = getWordOfTheDay()
 const now = new Date()
-const start = new Date(2022, 2, 2)
+const start = new Date(2022, 0, 0)
 const diff = Number(now) - Number(start)
 let day = Math.floor(diff / (1000 * 60 * 60 * 24))
-
-const answer = getWordOfTheDay()
 
 // Board state. Each tile is represented as { letter, state }
 const board = $ref(
@@ -135,7 +133,8 @@ function completeRow() {
       // game over :(
       setTimeout(() => {
         grid = genResultGrid()
-        showMessage('<div class="answer">' + answer + '</div>', -1)
+        show_answer = true
+        showMessage(answer, -1)
       }, 1600)
     }
   } else {
@@ -180,9 +179,10 @@ function genResultGrid() {
 <template>
   <Transition>
     <div class="message" v-if="message">
-      {{ message }}
+      <div class="answer" v-if="show_answer">{{ message }}</div>
+      <div v-else>{{ message }}</div>
       <pre v-if="grid">Vaultle #{{ day }}
-      {{ grid }}</pre>
+{{ grid }}</pre>
     </div>
   </Transition>
   <header>
