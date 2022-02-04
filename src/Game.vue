@@ -179,10 +179,10 @@ function genResultGrid() {
     </div>
   </Transition>
   <header>
-    <h1>VVORDLE</h1>
+    <h1>VAULTLE</h1>
     <a
       id="source-link"
-      href="https://github.com/yyx990803/vue-wordle"
+      href="https://github.com/alek2ander/vaultle"
       target="_blank"
       >Source</a
     >
@@ -219,6 +219,10 @@ function genResultGrid() {
 </template>
 
 <style scoped>
+@font-face {
+  font-family: "Ancient Runes";
+  src: local("Ancient Runes"),   url(/fonts/AncientRunes.ttf) format("truetype");
+}
 #board {
   display: grid;
   grid-template-rows: repeat(6, 1fr);
@@ -241,6 +245,7 @@ function genResultGrid() {
   border-radius: 4px;
   transform: translateX(-50%);
   transition: opacity 0.3s ease-out;
+  font-family: "Ancient Runes";
   font-weight: 600;
 }
 .message.v-leave-to {
@@ -253,6 +258,7 @@ function genResultGrid() {
 }
 .tile {
   width: 100%;
+  font-family: "Ancient Runes";
   font-size: 2rem;
   line-height: 2rem;
   font-weight: bold;

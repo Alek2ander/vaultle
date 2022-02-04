@@ -45,6 +45,10 @@ const rows = [
 </template>
 
 <style scoped>
+@font-face {
+  font-family: "Ancient Runes";
+  src: local("Ancient Runes"),   url(/fonts/AncientRunes.ttf) format("truetype");
+}
 #keyboard {
   margin: 30px 8px 0;
   user-select: none;
@@ -59,7 +63,7 @@ const rows = [
   flex: 0.5;
 }
 button {
-  font-family: inherit;
+  font-family: "Ancient Runes";
   font-weight: bold;
   border: 0;
   padding: 0;
