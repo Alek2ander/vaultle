@@ -5,7 +5,14 @@ import Keyboard from './Keyboard.vue'
 import { LetterState } from './types'
 
 // Get word of the day
-const answer = getWordOfTheDay()
+const now = new Date()
+const start = new Date(2022, 0, 0)
+const diff = Number(now) - Number(start)
+let day = Math.floor(diff / (1000 * 60 * 60 * 24))
+while (day > answers.length) {
+  day -= answers.length
+}
+const answer = getWordOfTheDay(day)
 
 // Board state. Each tile is represented as { letter, state }
 const board = $ref(
@@ -75,7 +82,7 @@ function completeRow() {
     const guess = currentRow.map((tile) => tile.letter).join('')
     if (!allWords.includes(guess) && guess !== answer) {
       shake()
-      showMessage(`NOT IN WORD LIST`)
+      showMessage(`Not in word list`)
       return
     }
 
@@ -113,7 +120,7 @@ function completeRow() {
       setTimeout(() => {
         grid = genResultGrid()
         showMessage(
-          ['GENIUS', 'MAGNIFICENT', 'IMPRESSIVE', 'SPLENDID', 'GREAT', 'PHEW'][
+          ['Genius', 'Magnificent', 'Impressive', 'Splendid', 'Great', 'Phew'][
             currentRowIndex
           ],
           -1
@@ -129,12 +136,13 @@ function completeRow() {
     } else {
       // game over :(
       setTimeout(() => {
-        showMessage(answer, -1)
+        grid = genResultGrid()
+        showMessage('<div class="answer">' + answer + '</div>', -1)
       }, 1600)
     }
   } else {
     shake()
-    showMessage('NOT ENOUGH LETTERS')
+    showMessage('Not enough letters')
   }
 }
 
@@ -175,7 +183,8 @@ function genResultGrid() {
   <Transition>
     <div class="message" v-if="message">
       {{ message }}
-      <pre v-if="grid">{{ grid }}</pre>
+      <pre v-if="grid">Vaultle #{{ day }}
+      {{ grid }}</pre>
     </div>
   </Transition>
   <header>
@@ -241,6 +250,9 @@ function genResultGrid() {
   border-radius: 4px;
   transform: translateX(-50%);
   transition: opacity 0.3s ease-out;
+  font-weight: 600;
+}
+.answer {
   font-family: "Ancient Runes";
   font-weight: 400;
 }
