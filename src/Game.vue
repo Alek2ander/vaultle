@@ -254,6 +254,7 @@ function genResultGrid() {
 .answer {
   font-family: "Ancient Runes";
   font-weight: 400;
+  font-size: 2rem;
 }
 .message.v-leave-to {
   opacity: 0;
