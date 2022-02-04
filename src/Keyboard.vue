@@ -10,9 +10,9 @@ defineEmits<{
 }>()
 
 const rows = [
-  'qwertyuiop'.split(''),
-  'asdfghjkl'.split(''),
-  ['Enter', ...'zxcvbnm'.split(''), 'Backspace']
+  'qwertyuiop=123'.split(''),
+  'asdfghjkl;:\'"'.split(''),
+  ['Enter', ...'zxcvbnm.?()'.split(''), 'Backspace']
 ]
 </script>
 
@@ -25,7 +25,7 @@ const rows = [
         :class="[key.length > 1 && 'big', letterStates[key]]"
         @click="$emit('key', key)"
       >
-        <span v-if="/^[a-zA-Z]$/.test(key)">{{ key }}</span>
+        <span v-if="key !== 'Enter' && key !== 'Backspace'">{{ key }}</span>
         <span v-else-if="key === 'Enter'">ENTER</span>
         <svg
           v-else
