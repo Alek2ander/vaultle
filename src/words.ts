@@ -1,6 +1,6 @@
 const defaultMessage = ' Using word of the day instead.'
 
-export function getWordOfTheDay(day) {
+export function getWordOfTheDay() {
   if (location.search) {
     try {
       const query = atob(location.search.slice(1))
@@ -13,6 +13,11 @@ export function getWordOfTheDay(day) {
       alert(`Malformed encoded word query. ${defaultMessage}`)
     }
   }
+
+  const now = new Date()
+  const start = new Date(2022, 0, 0)
+  const diff = Number(now) - Number(start)
+  let day = Math.floor(diff / (1000 * 60 * 60 * 24))
   while (day > answers.length) {
     day -= answers.length
   }

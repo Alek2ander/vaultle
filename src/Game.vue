@@ -10,7 +10,7 @@ const start = new Date(2022, 2, 2)
 const diff = Number(now) - Number(start)
 let day = Math.floor(diff / (1000 * 60 * 60 * 24))
 
-const answer = getWordOfTheDay(day)
+const answer = getWordOfTheDay()
 
 // Board state. Each tile is represented as { letter, state }
 const board = $ref(
