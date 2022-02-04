@@ -47,7 +47,7 @@ function onKey(key: string) {
     fillTile(key.toLowerCase())
   } else if (key === 'Backspace') {
     clearTile()
-  } else if (key === 'Enter') {
+  } else if (key === 'ENTER') {
     completeRow()
   }
 }
@@ -75,7 +75,7 @@ function completeRow() {
     const guess = currentRow.map((tile) => tile.letter).join('')
     if (!allWords.includes(guess) && guess !== answer) {
       shake()
-      showMessage(`Not in word list`)
+      showMessage(`NOT IN WORD LIST`)
       return
     }
 
@@ -134,7 +134,7 @@ function completeRow() {
     }
   } else {
     shake()
-    showMessage('Not enough letters')
+    showMessage('NOT ENOUGH LETTERS')
   }
 }
 
@@ -219,10 +219,6 @@ function genResultGrid() {
 </template>
 
 <style scoped>
-@font-face {
-  font-family: "Ancient Runes";
-  src: local("Ancient Runes"),   url(/fonts/AncientRunes.ttf) format("truetype");
-}
 #board {
   display: grid;
   grid-template-rows: repeat(6, 1fr);
@@ -246,7 +242,7 @@ function genResultGrid() {
   transform: translateX(-50%);
   transition: opacity 0.3s ease-out;
   font-family: "Ancient Runes";
-  font-weight: 600;
+  font-weight: 400;
 }
 .message.v-leave-to {
   opacity: 0;
@@ -261,9 +257,8 @@ function genResultGrid() {
   font-family: "Ancient Runes";
   font-size: 2rem;
   line-height: 2rem;
-  font-weight: bold;
+  font-weight: 400;
   vertical-align: middle;
-  text-transform: uppercase;
   user-select: none;
   position: relative;
 }

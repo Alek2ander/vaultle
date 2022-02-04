@@ -12,7 +12,7 @@ defineEmits<{
 const rows = [
   'qwertyuiop'.split(''),
   'asdfghjkl'.split(''),
-  ['Enter', ...'zxcvbnm'.split(''), 'Backspace']
+  ['ENTER', ...'zxcvbnm'.split(''), 'Backspace']
 ]
 </script>
 
@@ -64,7 +64,8 @@ const rows = [
 }
 button {
   font-family: "Ancient Runes";
-  font-weight: bold;
+  font-weight: 400;
+  font-size: 1.5rem;
   border: 0;
   padding: 0;
   margin: 0 6px 0 0;
@@ -78,7 +79,6 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
-  text-transform: uppercase;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0.3);
   transition: all 0.2s 1.5s;
 }
