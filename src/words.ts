@@ -13,7 +13,9 @@ export function getWordOfTheDay(day) {
       alert(`Malformed encoded word query. ${defaultMessage}`)
     }
   }
-
+  while (day > answers.length) {
+    day -= answers.length
+  }
   return answers[day]
 }
 

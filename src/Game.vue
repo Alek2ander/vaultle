@@ -6,12 +6,10 @@ import { LetterState } from './types'
 
 // Get word of the day
 const now = new Date()
-const start = new Date(2022, 0, 0)
+const start = new Date(2022, 2, 2)
 const diff = Number(now) - Number(start)
 let day = Math.floor(diff / (1000 * 60 * 60 * 24))
-while (day > answers.length) {
-  day -= answers.length
-}
+
 const answer = getWordOfTheDay(day)
 
 // Board state. Each tile is represented as { letter, state }
