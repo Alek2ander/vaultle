@@ -147,7 +147,13 @@ const answers = [
 ")c.of",
 "'.)hi",
 ";1's1",
-"\"(.al"
+"\"(.al",
+"'.r.1",
+";\"bzm",
+"c.'.s",
+"r.;ec",
+";\"xep",
+"c.b:\""
 ]
 
 const allowedGuesses = [
@@ -272,7 +278,14 @@ const allowedGuesses = [
 ")c.of",
 "'.)hi",
 ";1's1",
-"\"(.al"
+"\"(.al",
+"'.r.1",
+";\"bzm",
+"c.'.s",
+"r.;ec",
+";\"xep",
+"c.b:\"",
+"?xc.\""
 ]
 
 export const allWords = [...answers, ...allowedGuesses]
